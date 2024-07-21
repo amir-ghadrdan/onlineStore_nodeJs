@@ -37,5 +37,8 @@ app.use((req, res, next) => {
 
 app.use(approut)
 mongoConnect(() => {
+    console.log("your app running in port 3000")
+    console.log("please connect to the internet for mongodb connection")
+    console.log("open the browser and search : http://localhost:3000/")
     app.listen(3000)
 })

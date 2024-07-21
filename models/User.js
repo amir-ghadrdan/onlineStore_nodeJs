@@ -49,7 +49,7 @@ module.exports = class User {
 
     }
      
-    addToCart(product){
+    addToCart(product) {
         if (!this.cart) {
             this.cart = { items: [] };
         } else if (!Array.isArray(this.cart.items)) {
@@ -59,27 +59,28 @@ module.exports = class User {
         const cartproductIndex = this.cart.items.findIndex(cp => {
             return cp.productId.toString() === product._id.toString();
         });
-        // console.log(cartproductIndex)
-        const updateCartItems = [...this.cart.items]
+    
+        const updateCartItems = [...this.cart.items];
         let newquantity = 1; 
-        if(cartproductIndex > 0){
-            newquantity = this.cart.items[cartproductIndex].quantity+1;
-            updateCartItems[cartproductIndex].quantity=newquantity;
-        }else{ 
+        if (cartproductIndex >= 0) {
+            newquantity = this.cart.items[cartproductIndex].quantity + 1;
+            updateCartItems[cartproductIndex].quantity = newquantity;
+        } else { 
             updateCartItems.push({
-                productId:new mongodb.ObjectId(product._id),
-                quantity : newquantity
-            })
+                productId: new mongodb.ObjectId(product._id),
+                quantity: newquantity
+            });
         }
-        console.log(newquantity)
-        const updatedCart = {items: updateCartItems}
+    
+        console.log(newquantity);
+        const updatedCart = { items: updateCartItems };
         const db = DB.getdb();
         return db
-        .collection("users")
-        .updateOne({_id:new mongodb.ObjectId(this._id)},
-        {$set:{cart:updatedCart}})
-
+            .collection("users")
+            .updateOne({ _id: new mongodb.ObjectId(this._id) },
+            { $set: { cart: updatedCart } });
     }
+    
     getCart() {
 
             const db=DB.getdb()
