@@ -1,0 +1,152 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 60px; /* فاصله از بالا به اندازه ارتفاع منوی ناوبری */
+  /* margin-left: 20px;; */
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.2s;
+  height: 234px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card__header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.product__title {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.card__content {
+  padding: 15px;
+}
+
+.product__price {
+  margin: 0;
+  font-size: 1.2em;
+  color: #e74c3c;
+}
+
+.product__description {
+  margin: 10px 0 0;
+  color: #777;
+}
+
+.card__actions {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.card__actions a,
+.card div a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #3498db;
+  transition: background-color 0.3s;
+}
+
+.card__actions a:hover,
+.card div a:hover {
+  background-color: #2980b9;
+}
+
+.deleted {
+  background-color: #e74c3c;
+}
+
+.deleted:hover {
+  background-color: #c0392b;
+}
+
+.update {
+  background-color: #f39c12;
+}
+
+.update:hover {
+  background-color: #e67e22;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Added styles for navigation */
+.main-header {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 40px; /* تنظیم ارتفاع منوی ناوبری */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-header__nav {
+  display: flex;
+  justify-content: center;
+}
+
+.main-header__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.main-header__item a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.main-header__item a:hover,
+.main-header__item a.active {
+  background-color: #007bff;
+}

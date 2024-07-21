@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم محصول</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="navigation.css">
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    
+    .form-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 90%;
+        max-width: 400px;
+        margin-top: 100px; /* فاصله از بالا */
+    }
+    
+    .form-container h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+    .form-group button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .form-group button:hover {
+        background-color: #0056b3;
+    }
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 60px; /* فاصله از بالا به اندازه ارتفاع منوی ناوبری */
+  /* margin-left: 20px;; */
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.2s;
+  height: 234px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card__header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.product__title {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.card__content {
+  padding: 15px;
+}
+
+.product__price {
+  margin: 0;
+  font-size: 1.2em;
+  color: #e74c3c;
+}
+
+.product__description {
+  margin: 10px 0 0;
+  color: #777;
+}
+
+.card__actions {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.card__actions a,
+.card div a {
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #3498db;
+  transition: background-color 0.3s;
+}
+
+.card__actions a:hover,
+.card div a:hover {
+  background-color: #2980b9;
+}
+
+.deleted {
+  background-color: #e74c3c;
+}
+
+.deleted:hover {
+  background-color: #c0392b;
+}
+
+.update {
+  background-color: #f39c12;
+}
+
+.update:hover {
+  background-color: #e67e22;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Added styles for navigation */
+.main-header {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 40px; /* تنظیم ارتفاع منوی ناوبری */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-header__nav {
+  display: flex;
+  justify-content: center;
+}
+
+.main-header__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.main-header__item a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.main-header__item a:hover,
+.main-header__item a.active {
+  background-color: #007bff;
+}
+
+    </style>
+</head>
+<body>
+    <%- include('./includes/navigation.ejs') %>
+    <div class="form-container">
+        <form action="/add_update_product/<%= prodId %>" method="post">
+            <h2>افزودن محصول جدید</h2>
+            <div class="form-group">
+                <label for="product-name">نام محصول:</label>
+                <input type="text"  name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">قیمت:</label>
+                <input type="number"  name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="product-description">توضیحات:</label>
+                <textarea name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">ارسال</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
