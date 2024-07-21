@@ -15,8 +15,9 @@ const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 let _db;
 const mongoConnect =(callback)=>{
-    MongoClient.connect("mongodb://localhost:27017").then(
+    MongoClient.connect("mongodb+srv://amirhossein:Amgh1383@product.qeopo2c.mongodb.net/?retryWrites=true&w=majority&appName=product").then(
         (client)=>{
+            // console.log("yy")
             _db=client.db("product")
             callback(client)
         }

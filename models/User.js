@@ -71,6 +71,7 @@ module.exports = class User {
                 quantity : newquantity
             })
         }
+        console.log(newquantity)
         const updatedCart = {items: updateCartItems}
         const db = DB.getdb();
         return db
